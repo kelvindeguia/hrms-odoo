@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+
+    <!-- Menu Item for Attendance -->
+    <menuitem
+        id="hrms_attendance_root"
+        name="Attendances"
+        sequence="2"
+        action="hrms_attendance_action"
+        groups="group_hrms_attendance_admin,group_hrms_attendance_user"
+    />
+
+    <!-- Menu Item for Overview -->
+    <menuitem
+        id="hrms_attendance_view_attendance_menu"
+        parent="hrms_attendance_root"
+        name="Overview"
+        sequence="1"
+        action="hrms_attendance_action"
+        groups="group_hrms_attendance_admin,group_hrms_attendance_user"
+    />
+
+    <!-- Menu Item for Kiosk Mode -->
+    <menuitem 
+        id="menu_action_open_form" 
+        parent="hrms_attendance_root"
+        name="Kiosk Mode" 
+        action="hrms_attendance_action_install_kiosk_pwa" 
+        sequence="3" 
+        groups="group_hrms_attendance_admin,group_hrms_attendance_user" />
+
+</odoo>

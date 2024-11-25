@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_hrms_attendance_admin,hrms.attendance.admin,model_hrms_attendance,group_hrms_attendance_admin,1,1,1,1
+access_hrms_attendance_user,hrms.attendance.user,model_hrms_attendance,group_hrms_attendance_user,1,0,0,0

@@ -1,0 +1,32 @@
+<odoo>
+    <record id="hrms_attendance_action" model="ir.actions.act_window">
+        <field name="name">Attendances</field>
+        <field name="res_model">hrms.attendance</field>
+        <field name="view_mode">list,form</field>
+        <field name="context">{"search_default_employee": 1}
+        </field>
+    </record>
+
+    <record id="action_try_kiosk" model="ir.actions.server">
+        <field name="name">Try kiosk</field>
+        <field name="model_id" ref="hrms_attendance.model_hrms_attendance"/>
+        <field name="state">code</field>
+        <field name="code">action = model.action_try_kiosk()</field>
+    </record>
+
+    <record id="action_load_demo_data" model="ir.actions.server">
+        <field name="name">Load demo data</field>
+        <field name="model_id" ref="hrms_attendance.model_hrms_attendance"/>
+        <field name="state">code</field>
+        <field name="code">action = model._load_demo_data()</field>
+    </record>
+
+    <record id="hrms_attendance_action_install_kiosk_pwa" model="ir.actions.client">
+        <field name="name">Attendance Kiosk</field>
+        <field name="target">new</field>
+        <field name="res_model">hrms.attendance</field>
+        <field name="tag">install_kiosk_pwa</field>
+        <field name="context">{'app_id': 'hrms_attendance', 'footer': false}</field>
+    </record>
+
+</odoo>
