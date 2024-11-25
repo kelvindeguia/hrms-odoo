@@ -1,0 +1,33 @@
+<odoo>
+<!-- HR Offboarding Tracker: list View-->
+    <record id='hr_offboarding_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.offboarding.list</field>
+        <field name='model'>hr.offboarding</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='employee_name_id' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='last_working_date' optional="show" />
+                <field name='seperation_date' optional="show" />
+                <field name='c_company' optional="show" />
+                <field name='overall_clearance_status' optional="show" />
+                <field name='hr_remarks' optional="show" />
+                <field name='disabling_of_it_access' optional="hide" />
+                <field name='odoo_access_disabling' optional="hide" />
+                <field name='assets_pullout_status' optional="hide" />
+                <field name='it_assets_returned' optional="hide" />
+                <field name='pending_it_assets_to_be_returned' optional="hide" />
+                <field name='it_clearance_status' optional="hide" />
+                <field name='it_remarks' optional="show" />
+                <field name='locker_facilities' optional="hide" />
+                <field name='pedestal_key' optional="hide" />
+                <field name='accesories' optional="hide" />
+                <field name='facilities_clearance_status' optional="hide" />
+                <field name='facilities_remarks' optional="show" />
+                <field name='created' optional="show" />
+            </list>
+        </field>
+    </record>
+</odoo>

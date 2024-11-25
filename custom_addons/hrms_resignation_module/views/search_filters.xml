@@ -1,0 +1,32 @@
+<odoo>
+<!-- HR ER Tracker: Resignation: Search View -->
+    <record id='hr_resignation_search' model='ir.ui.view'>
+        <field name='name'>hr.resignation.search</field>
+        <field name='model'>hr.resignation</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='eid' string='Employee ID'
+                    filter_domain="[('eid', 'ilike', self)]"/>
+                <field name='full_name_id' string='Employee'
+                    filter_domain="['|', '|', ('full_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <separator />
+                <filter string='Voluntary' name='voluntary'
+                    domain="[('voluntary_involuntary', '=', 'voluntary')]" />
+                <filter string='Involuntary' name='involuntary'
+                    domain="[('voluntary_involuntary', '=', 'involuntary')]" />
+                <separator />
+                <filter string='iSwerk' name='iswerk'
+                    domain="[('entity', '=', 'iswerk')]" />
+                <filter string='iSupport Worldwide' name='isupport_worldwide'
+                    domain="[('entity', '=', 'isupport_worldwide')]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="department_account_id" context="{'group_by':'department_account_id'}" />
+                    <filter string="Employment Status" name="employment_status" context="{'group_by':'employment_status'}" />
+                    <filter string="Eligible for rehire" name="eligible_for_rehire" context="{'group_by':'eligible_for_rehire'}" />
+                    <filter string="Reason for Separation" name="reason_for_seperation" context="{'group_by':'reason_for_seperation'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

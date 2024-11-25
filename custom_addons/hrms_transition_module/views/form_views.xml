@@ -1,0 +1,60 @@
+<odoo>
+<!-- HR Iswerk Transition List: Form View -->
+    <record id='hr_transition_form' model='ir.ui.view'>
+        <field name='name'>hr.transition.form</field>
+        <field name='model'>hr.transition</field>
+        <field name='arch' type='xml'>
+            <form>
+            <field name='first_name' invisible='1'/>
+            <field name='last_name' invisible='1'/>
+            <field name='middle_name' invisible='1'/>
+            <field name='date_of_birth' invisible='1'/>
+            <field name='is_approver' invisible='1'/>
+             
+            <header>
+                <div>
+                    <button name="button_for_approval" class="oe_highlight me-1"  invisible="transfer_status not in ('new')" string="Transfer" type="object" help="Move Status to Transfer state"
+                            groups="hrms_transition_module.group_hrms_transition_manager,hrms_transition_module.group_hr_department_user,hrms_transition_module.group_hr_department_manager"/>
+                    <button name="button_cancelled" class="oe_highlight me-1"  invisible="transfer_status in ('transferred','cancel')" string="Cancel" type="object" help="Cancel the Transfer of Employee"
+                            groups="hrms_transition_module.group_hrms_transition_manager,hrms_transition_module.group_hr_department_user,hrms_transition_module.group_hr_department_manager"/>
+                    <button name="button_reset_status" class="oe_highlight me-1"  invisible="transfer_status in ('new')" string="Reset Status" type="object" help="Reset Transfer Status"
+                            groups="hrms_transition_module.group_hrms_transition_manager,hrms_transition_module.group_hr_department_manager"/>
+                    <button name="action_approve" type="object" string="Approve"  class="btn-success me-1" invisible="(is_approver == False) or (transfer_status != 'for_approval')"/>
+                </div>
+                <field name='transfer_status' class="oe_highlight me-1"  widget='statusbar' statusbar_visible="new,for_approval,transferred" visible="transfer_status != 'new'"/>
+                
+            </header>
+                <sheet>
+                    <h3>
+                        <label for='employee_id'/>
+                        <br></br>
+                        <field name='employee_id'/>
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='position_id' readonly="'group_id' in '[hrms_transition_module.group_hrms_transition_approver]'"/>
+                            <field name='start_date'/>
+                            <field name='work_email'/>
+                            <field name='current_department_id'/>
+                            <field name='transffered_department_id'/>
+                        </group>
+                        <group>
+                            <field name='effective_date_transfer'/>
+                            <field name='payroll_credential_status'/>
+                            <field name='payroll_enrolled_date'/>
+                            <field name='payroll_credential_generated_by'/>
+                            <field name='validated_by_id'/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>

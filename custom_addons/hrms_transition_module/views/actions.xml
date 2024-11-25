@@ -1,0 +1,10 @@
+<odoo>
+    <!-- Action: HR Transition -->
+    <record id='action_hr_transition' model='ir.actions.act_window'>
+        <field name='name'>Transition</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.transition</field>
+        <field name='view_mode'>kanban,list,form</field>
+    </record>
+
+</odoo>

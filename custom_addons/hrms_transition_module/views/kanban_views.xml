@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+    <record id="hr_transition_kanban" model="ir.ui.view">
+            <field name="name">hr.transition.kanban</field>
+            <field name="model">hr.transition</field>
+            <field name="priority">10</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_example">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_content">
+                                    <!-- <div>
+                                        <img t-att-src="kanban_image('res.users', 'image_small')" class="oe_kanban_image"/>
+                                    </div> -->
+                                    <strong>
+                                        <div style="font-size: 16px;">
+                                            <div><field name="employee_id"/></div>
+                                            <div><field name="complete_name_id"/></div>
+                                        </div>
+                                    </strong>
+                                    <div>
+                                        <ul>
+                                            <li t-if="record.work_email.raw_value" class="o_force_ltr" style="list-style-type: none;">
+                                                <i class="fa fa-fw me-2 fa-envelope text-primary" title="Email"/>
+                                                <field name="work_email"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+    </data>
+</odoo>

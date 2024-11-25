@@ -1,0 +1,28 @@
+<odoo>
+<!-- HR Offboarding: Search View -->
+    <record id='hr_offboarding_search' model='ir.ui.view'>
+        <field name='name'>hr.offboarding.search</field>
+        <field name='model'>hr.offboarding</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='employee_name_id' string='Employee'
+                    filter_domain="['|', '|', ('employee_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='ISWerk' name='iswerk'
+                    domain="[('c_company', '=', 'iswerk')]" />
+                <filter string='iSupport Worldwide' name='isupport_worldwide'
+                    domain="[('c_company', '=', 'isupport_worldwide')]" />
+                <separator />
+
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <filter string="Company" name="c_company" context="{'group_by':'c_company'}" />
+                    <separator />
+                    <filter string="Separation Date" name="seperation_date" context="{'group_by':'seperation_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,145 @@
+<odoo>
+    <!-- Action: Employee Masterlist Active -->
+    <record id='action_hr_employee_masterlist' model='ir.actions.act_window'>
+        <field name='name'>Empoloyees</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.employee.masterlist</field>
+        <field name='view_mode'>kanban,list,form,pivot,graph,activity</field>
+    </record>
+
+    <!-- Action: Employee Masterlist Active - Employee View -->
+    <record id='action_hr_employee_masterlist_employee' model='ir.actions.act_window'>
+        <field name='name'>Empoloyees</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.employee.masterlist</field>
+        <field name='view_mode'>kanban,form</field>
+    </record>
+
+
+    <!-- Action: Employee Masterlist Active - Org Chart-->
+    <record id='action_hr_employee_masterlist_org_chart' model='ir.actions.act_window'>
+        <field name='name'>Org Chart</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.employee.masterlist</field>
+        <field name='view_mode'>hierarchy,form</field>
+    </record>
+
+    <!-- Action : Create User in Employee Masterlist - form -->
+    <record id="action_hr_employee_masterlist_create_user" model="ir.actions.server">
+            <field name="name">Create User</field>
+            <field name="model_id" ref="model_hr_employee_masterlist"/>
+            <field name="binding_model_id" ref="model_hr_employee_masterlist"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">
+                action = records.action_create_user()
+            </field>
+    </record>
+
+    <!-- Action: HR ER Tracker - PMF -->
+    <record id='action_hr_er_tracker_pmf' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - PMF Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.er.tracker.pmf</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+     <!-- Action: HR ER Tracker - PMF -->
+     <record id='action_hr_er_tracker_pmf_type_of_movement' model='ir.actions.act_window'>
+        <field name='name'>Type of Movement Tracker(PMF)</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.er.tracker.pmf.type.of.movement</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR ER Tracker - DA -->
+    <record id='action_hr_er_tracker_da' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - DA Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.er.tracker.da</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR ER Tracker - RTWO -->
+    <record id='action_hr_rtwo_tracker' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - RTWO</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.rtwo.tracker</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR ER Tracker - Probationary Extension Tracker  -->
+    <record id='action_hr_probitionary_extension_tracker' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - Probationary Extension Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.probitionary.extension.tracker</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+     <!-- Action: HR ER Tracker - PPPA Tracker  -->
+     <record id='action_hr_pppa_tracker' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - PPPA Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.pppa.tracker</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR ER Tracker - Project Based Extension -->
+    <record id='action_hr_project_based_extension' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - Project Based Extension</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.project.based.extension</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR ER Tracker - PIP Tracker -->
+    <record id='action_hr_pip_tracker' model='ir.actions.act_window'>
+        <field name='name'>ER Tracker - PIP Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.pip.tracker</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+    <!-- Action: HR Performance Review Tracker-->
+    <record id='action_hr_performance_review_tracker' model='ir.actions.act_window'>
+        <field name='name'>Performance Review Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.performance.review.tracker</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+
+     <!-- Action: HR Contracts-->
+    <record id='action_hr_contracts' model='ir.actions.act_window'>
+        <field name='name'>Contracts</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.contracts</field>
+        <field name='view_mode'>list,form,kanban,activity</field>
+    </record>
+
+    <!-- Action: HR Departments-->
+    <record id='action_hr_departments' model='ir.actions.act_window'>
+        <field name='name'>Departments</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.departments</field>
+        <field name='view_mode'>kanban,list,form</field>
+        <!-- hierarchy -->
+    </record>
+
+    <!-- Action: HR Dependency-->
+    <record id='action_hr_dependency' model='ir.actions.act_window'>
+        <field name='name'>Dependency</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.dependency</field>
+        <field name='view_mode'>kanban,list,form</field>
+    </record>
+
+    <!-- Action: HR Job Position-->
+    <record id='action_hr_job_position' model='ir.actions.act_window'>
+        <field name='name'>Job Position</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.job.positions</field>
+        <field name='view_mode'>kanban,list,form</field>
+    </record>
+
+    
+</odoo>

@@ -1,0 +1,35 @@
+<odoo>
+    <!-- HR Resignation: list View -->
+    <record id='hr_resignation_list' model='ir.ui.view'>
+        <field name='name'>hr.resignation.list</field>
+        <field name='model'>hr.resignation</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='eid' optional="show" />
+                <field name='full_name_id' optional="show" />
+                <field name='personal_email' optional="hide" />
+                <!-- <field name='phone_number' optional="hide" /> -->
+                <field name='department_account_id' optional="show" />
+                <field name='position_id' optional="show" />
+                <field name='employment_status' optional="show" />
+                <field name='date_hired' optional="hide" />
+                <field name='separation_date' optional="hide" />
+                <field name='separation_status' optional="show" />
+                <field name='category' optional="show" />
+                <field name='eligible_for_rehire' optional="hide" />
+                <field name='voluntary_involuntary' optional="show" />
+                <field name='reason_for_seperation' optional="show" />
+                <field name='resignation_letter_recieved' optional="show" />
+                <field name='note' optional="show" />
+                <field name='exit_interview_reason_for_leaving' optional="hide" />
+                <field name='rl_recieved_date' optional="hide" />
+                <field name='entity' optional="show" />
+                <field name='for_final_pay' optional="show" />
+                <field name='recieved_employment_verification_from' optional="hide" />
+                <field name='department' optional="show" />
+                <field name='total_months' optional="show" />
+                <field name='tenure_bracket' optional="show" />
+            </list>
+        </field>
+    </record>
+</odoo>

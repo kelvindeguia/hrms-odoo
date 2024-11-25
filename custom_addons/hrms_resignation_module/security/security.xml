@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- ADMIN ACCESS () -->
+        <record model="ir.module.category" id="admin_resignation_access">
+            <field name="name">Admin</field>
+            <field name="parent_id" ref="module_hrms_resignation_groups" />
+        </record>
+
+        <record id="group_hrms_resignation_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="admin_resignation_access" />
+            <!-- <field name="implied_ids" eval="[(3, ref('group_hrms_resignation_approver'))]" /> -->
+        </record>
+
+    <!-- HR ACCESS -->
+        <record model="ir.module.category" id="hr_access">
+            <field name="name">HR</field>
+            <field name="parent_id" ref="module_hrms_resignation_groups" />
+        </record>
+
+        <record id="group_hr_department_user" model="res.groups">
+            <field name="name">HR User</field>
+            <field name="category_id" ref="hr_access" />
+        </record>
+
+        <record id="group_hr_department_manager" model="res.groups">
+            <field name="name">HR Manager</field>
+            <field name="category_id" ref="hr_access" />
+            <field name="implied_ids" eval="[(4, ref('group_hr_department_user'))]" />
+        </record>
+    
+    <!-- C&B Access -->
+        <record model="ir.module.category" id="c_and_b_access">
+            <field name="name">C&amp;B</field>
+            <field name="parent_id" ref="module_hrms_resignation_groups" />
+        </record>
+
+        <record id="group_c_and_b_user" model="res.groups">
+            <field name="name">C&amp;B User</field>
+            <field name="category_id" ref="c_and_b_access" />
+        </record>
+
+        <record id="group_c_and_b_manager" model="res.groups">
+            <field name="name">C&amp;B Manager</field>
+            <field name="category_id" ref="c_and_b_access" />
+            <field name="implied_ids" eval="[(4, ref('group_c_and_b_user'))]" />
+        </record>
+
+        <!-- Approver Access -->
+        <record model="ir.module.category" id="resignation_approver_access">
+            <field name="name">Resignation Approver</field>
+            <field name="parent_id" ref="module_hrms_resignation_groups" />
+        </record>
+        
+        <record id="group_hrms_resignation_approver" model="res.groups">
+            <field name="name">Approver</field>
+            <field name="category_id" ref="resignation_approver_access"/>
+        </record>
+    </data>
+</odoo>

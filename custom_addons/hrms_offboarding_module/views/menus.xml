@@ -1,0 +1,18 @@
+<odoo>
+    <menuitem
+        id='root_menu_offboarding'
+        name='HRMS - Offboarding'
+        sequence='3'
+        groups='group_hrms_offboarding_user,group_hrms_offboarding_manager,group_hr_department_user,group_hr_department_manager,group_it_department_user,group_it_department_manager,group_gloc_department_user,group_gloc_department_manager,group_recruitment_department_user,group_recruitment_department_manager,group_facilities_department_user,group_facilities_department_manager,group_cs_department_user,group_cs_department_manager,group_finance_department_user,group_finance_department_manager'
+    />
+
+    <!-- Main Menu: Offboarding -->
+    <menuitem
+        id='main_menu_offboarding'
+        name='offboarding'
+        parent='root_menu_offboarding'
+        sequence='1'
+        groups='group_hrms_offboarding_user,group_hrms_offboarding_manager,group_hr_department_user,group_hr_department_manager,group_it_department_user,group_it_department_manager,group_gloc_department_user,group_gloc_department_manager,group_recruitment_department_user,group_recruitment_department_manager,group_facilities_department_user,group_facilities_department_manager,group_cs_department_user,group_cs_department_manager,group_finance_department_user,group_finance_department_manager'
+        action='action_hr_offboarding'
+    />
+</odoo>

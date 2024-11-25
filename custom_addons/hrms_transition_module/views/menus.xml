@@ -1,0 +1,28 @@
+<odoo>
+    <menuitem
+        id='root_menu_transition'
+        name='HRMS - Transition'
+        sequence='3'
+        groups='group_hrms_transition_manager,group_hr_department_user,group_hr_department_manager,group_hrms_transition_approver'
+    />
+
+    <!-- Main Menu: Transition -->
+    <menuitem
+        id='main_menu_transition'
+        name='Transition'
+        parent='root_menu_transition'
+        sequence='1'
+        groups='group_hrms_transition_manager,group_hr_department_user,group_hr_department_manager,group_hrms_transition_approver'
+    />
+
+    <!-- Sub menu: ISWerk -->
+    <menuitem
+        id='menu_hr_iswerk_transition'
+        parent='main_menu_transition'
+        name='ISWerk'
+        sequence='1'
+        groups='group_hrms_transition_manager,group_hr_department_user,group_hr_department_manager,group_hrms_transition_approver'
+        action='action_hr_transition'
+    />
+</odoo>
+        

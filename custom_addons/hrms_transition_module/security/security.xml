@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <!-- ADMIN ACCESS () -->
+        <record model="ir.module.category" id="admin_transition_access">
+            <field name="name">Admin</field>
+            <field name="parent_id" ref="module_hrms_transition_groups" />
+        </record>
+
+        <record id="group_hrms_transition_manager" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="admin_transition_access" />
+        </record>
+
+    <!-- HR ACCESS -->
+        <record model="ir.module.category" id="hr_access">
+            <field name="name">HR</field>
+            <field name="parent_id" ref="module_hrms_transition_groups" />
+        </record>
+
+        <record id="group_hr_department_user" model="res.groups">
+            <field name="name">HR User</field>
+            <field name="category_id" ref="hr_access" />
+        </record>
+
+        <record id="group_hr_department_manager" model="res.groups">
+            <field name="name">HR Manager</field>
+            <field name="category_id" ref="hr_access" />
+            <field name="implied_ids" eval="[(4, ref('group_hr_department_user'))]" />
+        </record>
+
+        <!-- ADMIN ACCESS () -->
+        <record model="ir.module.category" id="transition_approver_access">
+            <field name="name">Transition Approver</field>
+            <field name="parent_id" ref="module_hrms_transition_groups" />
+        </record>
+        
+        <record id="group_hrms_transition_approver" model="res.groups">
+            <field name="name">Approver</field>
+            <field name="category_id" ref="transition_approver_access" />
+        </record>
+
+    <!-- Employee Access -->
+        <!-- <record model="ir.module.category" id="employee_access">
+            <field name="name">Employee</field>
+            <field name="parent_id" ref="module_hrms_transition_groups" />
+        </record>
+
+        <record id="group_employee_user" model="res.groups">
+            <field name="name">Employee User</field>
+            <field name="category_id" ref="employee_access" />
+        </record>
+
+        <record id="group_employee_manager" model="res.groups">
+            <field name="name">Employee Manager</field>
+            <field name="category_id" ref="employee_access" />
+            <field name="implied_ids" eval="[(4, ref('group_employee_user'))]" />
+        </record> -->
+
+        
+    </data>
+</odoo>

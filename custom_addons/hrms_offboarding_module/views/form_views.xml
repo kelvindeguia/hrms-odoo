@@ -1,0 +1,73 @@
+<odoo>
+<!-- HR Offboarding : Form View -->
+    <record id='hr_offboarding_form' model='ir.ui.view'>
+        <field name='name'>hr.offboarding.form</field>
+        <field name='model'>hr.offboarding</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                <field name='first_name' invisible='1'/>
+                <field name='last_name' invisible='1'/>
+                <field name='middle_name' invisible='1'/>
+                    <h3>
+                        <label for='employee_id' />
+                        <br></br>
+                        <field name='employee_id' />
+                    </h3>
+                    <h3>
+                        <label for='employee_name_id' />
+                        <br></br>
+                        <field name='employee_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group string='HR'>
+                        <group>
+                            <field name='account_id' />
+                            <field name='hire_date' />
+                            <field name='last_working_date' />
+                            <field name='seperation_date' />
+                            <field name='c_company' />
+                            <field name='overall_clearance_status' />
+                        </group>
+                        <group>
+                            <field name='created' />
+                            <field name='item_type' />
+                            <field name='path' />
+                            <field name='hr_remarks' />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string='IT'>
+                            <group>
+                                <group>
+                                    <field name='disabling_of_it_access' />
+                                    <field name='odoo_access_disabling' />
+                                    <field name='assets_pullout_status' />
+                                    <field name='it_assets_returned' />
+                                </group>
+                                <group>
+                                    <field name='pending_it_assets_to_be_returned' />
+                                    <field name='it_clearance_status' />
+                                    <field name='it_remarks' />
+                                </group>
+                            </group>
+                        </page>
+                        <page string='Facilities'>
+                            <group>
+                                <group>
+                                    <field name='locker_facilities' />
+                                    <field name='pedestal_key' />
+                                    <field name='accesories' />
+                                </group>
+                                <group>
+                                    <field name='facilities_clearance_status' />
+                                    <field name='facilities_remarks' />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

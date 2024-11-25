@@ -1,0 +1,21 @@
+<odoo>
+<!-- HR Transition: Search View -->
+    <record id='hr_transition_search' model='ir.ui.view'>
+        <field name='name'>hr.transition.search</field>
+        <field name='model'>hr.transition</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+
+                <group expand="0" string="Group By: ">
+                    <filter string="Transferred Employee" name="transffered_department_id" context="{'group_by':'transffered_department_id'}" />
+                    <filter string="Transfer Status" name="transfer_status" context="{'group_by':'transfer_status'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

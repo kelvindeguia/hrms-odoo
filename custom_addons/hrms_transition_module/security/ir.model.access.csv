@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+hr_transition_manager,hr.transition.admin.manager,model_hr_transition,group_hrms_transition_manager,1,1,1,1
+
+hr_transition_hr_user,hr.transition.hr.manager,model_hr_transition,group_hr_department_user,1,1,1,0
+hr_transition_hr_manager,hr.transition.hr.approver,model_hr_transition,group_hr_department_manager,1,1,1,1
+
+hr_transition_approver,hr.transition.admin.approver,model_hr_transition,group_hrms_transition_approver,1,1,0,0

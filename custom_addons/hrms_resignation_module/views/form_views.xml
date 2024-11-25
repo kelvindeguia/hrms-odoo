@@ -1,0 +1,100 @@
+<odoo>
+<!-- HR Tracker: Resignation: Form View -->
+    <record id='hr_resignation_form' model='ir.ui.view'>
+        <field name='name'>hr.resignation.form</field>
+        <field name='model'>hr.resignation</field>
+        <field name='arch' type='xml'>
+            <form>
+                <header>
+                <button name="button_confirm" class="oe_highlight me-1"  invisible="resignation_status not in ('draft')" string="Confirm" type="object" help="Move Status to Confirm state"  groups="hrms_resignation_module.group_hrms_resignation_manager,hrms_resignation_module.group_hr_department_user,hrms_resignation_module.group_hr_department_manager"/>
+                <button name="button_retract" class="oe_highlight me-1"  invisible="resignation_status not in ('draft','confirm')" string="Retract/Cancel" type="object" help="Move Status to Retract/Cancel state"  groups="hrms_resignation_module.group_hrms_resignation_manager,hrms_resignation_module.group_hr_department_user,hrms_resignation_module.group_hr_department_manager"/>
+                <button name="action_approve" class="oe_highlight me-1"  invisible="(is_approver == False) or (resignation_status != 'confirm')" string="Approve" type="object" help="Move Status to Approve state"/>
+                <button name="action_reject" class="oe_highlight me-1"  invisible="(is_approver == False) or (resignation_status != 'confirm')" string="Reject" type="object" help="Move Status to Reject state"/>
+                <button name="button_reset_status" class="oe_highlight me-1"  invisible="resignation_status in ('draft')" string="Reject" type="object" help="Reset Status" groups="hrms_resignation_module.group_hrms_resignation_manager,hrms_resignation_module.group_hr_department_manager"/>
+                <field name='resignation_status' class="oe_highlight"  widget='statusbar' statusbar_visible="draft,confirm" visible="status != 'draft'"/>
+                </header>
+                <sheet>
+                <field name='first_name' invisible='1'/>
+                <field name='last_name' invisible='1'/>
+                <field name='middle_name' invisible='1'/>
+                    <h3>
+                        <label for='eid' />
+                        <br></br>
+                        <field name='eid' />
+                    </h3>
+                    <h3>
+                        <label for='full_name_id' />
+                        <br></br>
+                        <field name='full_name_id' />
+                    </h3>
+                    <group string="Employee Information">
+                        <field name='personal_email' />
+                        <!-- <field name='phone_number' placeholder="Ex. 905123456" />
+                        <field name='secondary_formatted_phone_number'
+                            placeholder="Ex. 905123456 or N/A" /> -->
+                        <field name='department_account_id' />
+                        <field name='position_id'/>
+                        <field name='employment_status' />
+                        <field name='date_hired' />
+                    </group>
+                    <notebook>
+                        <page string="Separation Details">
+                            <group>
+                                <group>
+                                    <field name='separation_date' />
+                                    <field name='separation_status' />
+                                    <field name='category' />
+                                    <field name='eligible_for_rehire' />
+                                    <field name='voluntary_involuntary' />
+                                    <field name='reason_for_seperation' />
+                                </group>
+                                <group>
+                                    <field name='resignation_letter_recieved' />
+                                    <!-- <field name='request_for_deactivation' /> -->
+                                    <!-- <field name='wfh_assets' /> -->
+                                    <!-- <field name='clearance_form_status' /> -->
+                                    <field name='exit_interview_reason_for_leaving' />
+                                    <field name='rl_recieved_date' />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Additional Separation Details">
+                            <group>
+                                <group>
+                                    <field name='note' />
+                                    <!-- <field name='retention_call' /> -->
+                                    <field name='entity' />
+                                    <field name='for_final_pay' />
+                                </group>
+                                <group>
+                                    <field name='recieved_employment_verification_from' />
+                                    <!-- <field name='contact_number' />
+                                    <field name='emergency_contact' /> -->
+                                    <field name='department' />
+                                    <!-- <field name='total_days'/> -->
+                                    <!-- <field name='total_years'/> -->
+                                    <field name='total_months' />
+                                    <field name='tenure_bracket' />
+                                </group>
+                            </group>
+                        </page>
+                        <!-- <page string="Other Details">
+                            <group>
+                                <group>
+                                    <field name='with_exit_interview' />
+                                    <field name='with_company_property_accountability_agreement' />
+                                    <field name='date_clearance_forwarded_to_c_b' />
+                                </group>
+                                <group>
+                                    <field name='received_by_c_b' />
+                                    <field name='finance_remarks' />
+                                </group>
+                            </group>
+                        </page> -->
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+</odoo>

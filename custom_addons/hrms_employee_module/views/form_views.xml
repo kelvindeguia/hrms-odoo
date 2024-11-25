@@ -1,0 +1,685 @@
+<odoo>
+    <!-- HR Employee Masterlist - Active: Form View -->
+    <record id='hr_employee_masterlist_active_form' model='ir.ui.view'>
+        <field name='name'>hr.employee.masterlist.form</field>
+        <field name='model'>hr.employee.masterlist</field>
+        <field name='arch' type='xml'>
+            <form>
+            <field name='user_id' invisible="1"/>
+            <header>
+            <div groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                            hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager">
+                <button name="button_fall_out" class="oe_highlight me-1"  invisible="status not in ('onboarding')" string="Fall Out" type="object" help="Move Status to Fall Out state"/>
+                <button name="button_tbd" class="oe_highlight me-1"  invisible="status not in ('onboarding')" string="TBD" type="object" help="Move Status to TBD state"/>
+                <button name="button_active" class="oe_highlight me-1"  invisible="status not in ('onboarding')" string="Active" type="object" help="Move Status to Active state"/>
+                <button name="button_offboarding" class="oe_highlight me-1"  invisible="status not in ('active')" string="Offboarding" type="object" help="Move Status to Offboarding state"/>
+                <button name="button_inactive" class="oe_highlight me-1"  invisible="status not in ('offboarding')" string="Inactive" type="object" help="Move Status to Inctive state"/>
+                <button name="button_reset_status" class="oe_highlight me-1"  invisible="status in ('onboarding')" string="Reset Status" type="object" help="Reset Employee Status"/>
+            </div>    
+                <field name='status' class="oe_highlight"  widget='statusbar' statusbar_visible="onboarding,active,offboarding,inactive" visible="status != 'onboarding'"/>
+                <!-- options="{'clickable':1} -->
+            </header>
+                <sheet>
+                 <!-- <field name='user_id' invisible='1'/> -->
+                        <!-- <field name="user_partner_id" invisible="1"/>
+                        <field name="image_128" invisible="1" />
+                        <field name="company_id" invisible="1"/>
+                        <field name="last_activity_time" invisible="1"/>
+                        <field name="last_activity" invisible="1"/>
+                        <div class="o_employee_avatar m-0 p-0">
+                                <field name="image_1920" widget='image' class="oe_avatar m-0" options='{"zoom": true, "preview_image":"avatar_128"}'/>
+                                <field name="show_hr_icon_display" invisible="1" />
+                                <field name="hr_icon_display" class="d-flex align-items-end fs-6 o_employee_availability" invisible="not show_hr_icon_display or not id" widget="hr_presence_status"/>
+                        </div> -->
+                    <h3>
+                        <label for='obt_number'/>
+                        <br></br>
+                        <field name='obt_number'/>
+                    </h3>
+                    <h3>
+                        <label for='employee_id'/>
+                        <br></br>
+                        <field name='employee_id'/>
+                    </h3>
+                    <h3>
+                        <label for='complete_name'/>
+                        <br></br>
+                        <field name='complete_name'/>
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+
+                    <group string="Personal Information">
+                        <group>
+                            <field name='first_name'/>
+                            <field name='last_name'/>
+                            <field name='middle_name'/>
+                            <field name='employee_address'/>
+                            <field name='city'/>
+                            <field name='region'/>
+                        </group>
+                        <group>
+                            <field name='date_of_birth'/>
+                            <field name='internet_provider'/>
+                            <field name='residing_within_metro_manila' placeholder="Please Select a Value."/>
+                        </group>
+                        <group string="Contacts">
+                            <field name='personal_email_address'/>
+                            <field name='employee_email_address'/>
+                            <field name='mobile_number' placeholder="Ex. 905123456"/>
+                            <field name='secondary_formatted_phone_number'  placeholder="Ex. 905123456 or N/A"/>
+                            <field name='landline_number'/>
+                        </group>
+                        <group string="Government Numbers">
+                            <field name='sss_number' placeholder="Not yet Submitted"/>
+                            <field name='tin_number' placeholder="Not yet Submitted"/>
+                            <field name='philhealth_number' placeholder="Not yet Submitted"/>
+                            <field name='pag_ibig_number' placeholder="Not yet Submitted"/>
+                        </group>
+                    </group>
+                    <group string="Dependence Details">
+                        <field name='family_dependency'/>
+                    </group>
+
+                    <notebook>
+                    <page string="Onboarding Details">
+                        <group  string="Onboarding Details" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                                    hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                                                    hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                                                    hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                                                    hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                                                    hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager">
+                            <group>
+                                <field name='hire_date'/>
+                                <field name='start_date'/>
+                                <field name='projected_start_date'/>
+                                <field name='orientation_date'/>
+                                <field name='actual_start_date'/>
+                                <field name='all_employees_except_pmi'/>
+                                <field name='isupport_employees_distro'/>
+                                <field name='iswerk_employees_distro'/>
+                                <field name='all_sanmar'/>
+                                <field name='all_ammex'/>
+                                <field name='lighthouse'/>
+
+                            </group>
+                            <group>
+                                <field name='isupporthub'/>
+                                <field name='okay_to_start'/>
+                                <field name='completed_neo'/>
+                                <field name='verified_all_information_are_correct'/>
+                                <!-- HR Onboarding Part 2 -->
+                                <field name='email_equipment_ready_for_pickup_sent'/>
+                                <field name='vaccinated'/>
+                                <field name='projected_nh_report_sent'/>
+                                <field name='welcome_email_neo_invite'/>
+                            </group>
+
+                            <group string="Hiring Details">
+                                <field name='request_id'/>
+                                <field name='job_offer_date'/>
+                                <field name='recruiter'/>
+                                <field name='hiring_manager'/>
+                                <field name='hiring_type'/>
+                                <field name='sourcing_channel'/>
+                                <field name='referrer'/>
+                            </group>
+
+                             <group string="Operation">
+                                    <field name='training_schedule_default_shift'/>
+                                    <field name='operations_schedule'/>
+                                    <field name='date_of_first_day_of_operations'/>
+                                    <field name='working_onsite' placeholder="Please Select a Value."/>
+                            </group>
+                        </group>
+
+                        <hr style="height:5px;border=width:0;color:gray;background-color:gray" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                                    hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                                                    hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                                                    hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                                                    hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                                                    hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager"/>
+
+                        <group string="Department Details" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                                    hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                                                    hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                                                    hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                                                    hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                                                    hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager">
+                            <!-- Client Services Part -->
+                            <group string="Client Services" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager,
+                                                                    hrms_employee_module.group_cs_department_user, hrms_employee_module.group_cs_department_manager">
+                                    <field name='system_requirement'/>
+                                    <field name='instructions_for_it_team'/>
+                                    <field name='training_poc'/>
+                                    <field name='training_poc_contact_information'/>
+                                    <field name='channel_of_communication'/>
+                                    
+                                    <field name='onboarding_report_sent_to_client'/>
+                            </group>
+
+                            <!-- IT Part -->
+                            <group string="IT" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                        hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager,
+                                                        hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager">
+                                <field name='pc_ready_for_deployment' />
+                                <field name='logins_created'/>
+                                <field name='isw_hostgator_email_created'/>
+                                <field name='nt_logins_sent_to_employee'/>
+                                <field name='signed_accountability_form_received'/>
+                            </group>
+
+                            <!-- Recruitment Part -->
+                            <group string="Recruitment" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager,
+                                                                hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager">
+                                <field name='onboarding_email'/>
+                            </group>
+
+                            <!-- Facilities Part -->
+                            <group string="Facilities" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager,
+                                                                hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager">
+                                <field name='prepared_gatepass_for_pick_up'/>
+                                <field name='pc_released'/>
+                                <field name='work_set_up_finalized'/>
+                                <field name='picked_up_by'/>
+                                <field name='new_hire_kits_released'/>
+                            </group>
+
+                            <!-- CS Part -->
+                            <!-- <group string="CS" groups="hrms_employee_module.hr_access,hrms_employee_module.cs">
+                                
+                            </group> -->
+                            
+                            
+                            <!-- C&B Part -->
+                            <group string="C&amp;B" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                            hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager,
+                                                            hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager">
+                                <field name='mypayroll_approver'/>
+                            </group>
+                        </group>
+
+                        <hr style="height:5px; border=width:100%; color:gray; background-color:gray" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                                    hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                                                    hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                                                    hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                                                    hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                                                    hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager"/>
+
+                        <group string="Requirements" groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                                    hrms_employee_module.group_employee_user,hrms_employee_module.group_employee_manager">
+                            <group string="Medical">
+                                <field name='medical_completed' placeholder="Please Select a Value."/>
+                                <field name='peme_endorsement'/>
+                                <field name='peme_clinic'/>
+                                <field name='peme_date_of_examination'/>
+                                <field name='peme_validity'/>
+                                <field name='peme_days_left'/>
+                            </group>
+                            <group string="Government">
+                                <field name='sss' placeholder="Please Select a Value."/>
+                                <field name='tin' placeholder="Please Select a Value."/>
+                                <field name='philhealth' placeholder="Please Select a Value."/>
+                                <field name='pag_ibig' placeholder="Please Select a Value."/>
+                                <field name='nbi_clearance' placeholder="Please Select a Value."/>
+                                <field name='bir_2316' placeholder="Please Select a Value."/>
+                                <field name='bir_2316_endorsement_date'/>
+                            </group>
+                            <group  string="Onboarding">
+                                <field name='id_photo' placeholder="Please Select a Value."/>
+                                <field name='letter_of_undertaking' placeholder="Please Select a Value."/>
+                                <field name='onboarding_forms' placeholder="Please Select a Value."/>
+                                <field name='onboarding_forms_pending' invisible = "onboarding_forms not in ('in_progress','pending')"/>
+                                <field name='deadline_of_primary_requirements'/>
+                                <field name='deadline_of_secondary_requirements'/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Work Details">
+                        <group>
+                            <group string="Employment">
+                                <field name='position_id'/>
+                                <field name='department_id'/>
+                                <field name='company' placeholder="Please Select a Value."/>
+                                <field name='c_classification_level' placeholder="Please Select a Value."/>
+                                <field name='c_employment_status' placeholder="Please Select a Value."/>
+                                <field name='lob' invisible='1'/>
+                                <field name='second_lob' invisible='1'/>
+                                <!-- <field name='tags'  widget="many2many_tags" options="{'color_field': 'color'}" invisible='1'/> -->
+                                <field name='status' placeholder="Please Select a Value." invisible='1'/>
+                            </group>
+
+                            <group string="Approver or Manager">
+                                <!-- <field name='managers_name'/> -->
+                                <field name='parent_id' widget="many2one_avatar_user"/>
+                                <field name='coach_id' widget="many2one_avatar_user" invisible='1'/>
+                                <field name='child_ids' invisible='1'/>
+                                <field name='managers_email_address'/>
+                                <field name='payroll_approver_id'/>
+                                <field name='payroll_approvers_email_address'/>
+                            </group>
+                            <group string="Schedule">
+                                <field name='training_schedule_default_shift'/>
+                                <field name='operations_schedule'/>
+                            </group>
+                            <group string="Others">
+                                <field name='performance_review_poc'/>
+                                <field name='entity_updated'/>
+                                <field name='barcode'/>
+                                <button string="Generate" class="btn btn-link" name="generate_random_barcode" type="object" invisible="barcode"/>
+                            </group>
+                        </group>
+                    </page>
+                    </notebook>
+                </sheet>
+                <chatter groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                                hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                                hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                                hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                                hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                                hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                                hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager">
+                </chatter>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_user_confirmation_wizard_form" model="ir.ui.view">
+        <field name="name">user.confirmation.wizard.form</field>
+        <field name="model">user.confirmation.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Create User">
+                <sheet>
+                    <h2>
+                        <label for='employee_id'/>
+                        <br></br>
+                        <field name='employee_id'/>
+                    </h2>
+                    <h2>
+                        <label for='complete_name'/>
+                        <br></br>
+                        <field name='complete_name'/>
+                    </h2>
+                    <hr style="height:5px; border=width:100%; color:gray; background-color:gray"/>
+                    <group>
+                        <!-- <label for="Confirm" string="Are you sure you want to create a user?" /> -->
+                        <field name="employee_email_address"/>
+                        <field name="mobile_number"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Create" type="object" name="action_confirm" class="oe_highlight"/>
+                    <button string="Cancel" type="object" name="action_cancel" class="oe_link"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR ER Tracker: PMF Tracker: Form View -->
+    <record id='hr_er_tracker_pmf_form' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.pmf.form</field>
+        <field name='model'>hr.er.tracker.pmf</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                <field name='first_name' invisible='1'/>
+                <field name='last_name' invisible='1'/>
+                <field name='middle_name' invisible='1'/>
+                    <h3>
+                        <label for="employee_id"/>
+                        <br/>
+                        <field name="employee_id"/>
+                    </h3>
+                    <h3>
+                        <label for="employee_name_id"/>
+                        <br/>
+                        <field name="employee_name_id"/>
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray"/>
+                    <group>
+                        <group>
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='position' />
+                            <field name='new_position' />
+                            <field name='current_rate' />
+                            <field name='new_rate' />
+                        </group>
+                        <group>
+                            <field name='effective_date' />
+                            <field name='email' widget='email' />
+                            <field name='manager_id' />
+                            <!-- <field name='type_of_movement' /> -->
+                            <field name='c_type_of_movement_id' />
+                            <field name='pmf_sent_date' />
+                            <field name='hr_representative' />
+                            <field name='remarks' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR ER Tracker: DA Tracker: Form View -->
+    <record id='hr_er_tracker_da_form' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.da.form</field>
+        <field name='model'>hr.er.tracker.da</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_number' />
+                        <br></br>
+                        <field name='employee_number' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='last_name' />
+                            <field name='first_name' />
+                            <field name='middle_name' />
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='main_infraction' />
+                            <field name='section' />
+                            <field name='level_of_sanction' />
+                            <field name='description' />
+                        </group>
+                        <group>
+                            <field name='ir_received_date' />
+                            <field name='hr_representative' />
+                            <field name='nte_serve_date' />
+                            <field name='nte_received_date' />
+                            <field name='ah_date'
+                                invisible = "level_of_sanction != 'grave'"/>
+                            <field name='ah_time'
+                                invisible = "level_of_sanction != 'grave'"/>
+                            <field name="c_decision"/>
+                            <field name="nda_served_date"/>
+                            <field name="termination_date"/>
+                            <field name="remarks"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - RTWO Tracker: Form View -->
+    <record id='hr_rtwo_tracker_form' model='ir.ui.view'>
+        <field name='name'>hr.rtwo.tracker.form</field>
+        <field name='model'>hr.rtwo.tracker</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_id' />
+                        <br></br>
+                        <field name='employee_id' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='last_name' />
+                            <field name='first_name' />
+                            <field name='middle_name' />
+                            <field name='hire_date' />
+                            <field name='personal_email_address' />
+                            <field name='work_email_address' />
+                            <field name='requestor_name' />
+                            <field name='hr_representative' />
+                            <!-- <field name='start_date_ncns' /> -->
+                        </group>
+                        <group>
+                            <field name='rtwo_letter_sent' />
+                            <field name='first_rtwo_hearing' />
+                            <field name='first_rtwo_time' />
+                            <field name='second_rtwo' />
+                            <field name='second_rtwo_hearing'
+                                invisible = "second_rtwo != 'yes'"/>
+                            <field name='second_rtwo_time'
+                                invisible = "second_rtwo != 'yes'"/>
+                            <field name="termination_date"/>
+                            <field name="remarks"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Probitionary Extension Tracker: Form View -->
+    <record id='hr_probitionary_extension_tracker_form' model='ir.ui.view'>
+        <field name='name'>hr.probitionary.extension.tracker.form</field>
+        <field name='model'>hr.probitionary.extension.tracker</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_id' />
+                        <br></br>
+                        <field name='employee_id' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='position_id' />
+                        </group>
+                        <group>
+                            <field name='fifth_month_review' />
+                            <field name='regularization_date' />
+                            <field name='extension_date' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PPPA Tracker: Form View -->
+    <record id='hr_pppa_tracker_form' model='ir.ui.view'>
+        <field name='name'>hr.pppa.tracker.form</field>
+        <field name='model'>hr.pppa.tracker</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_id' />
+                        <br></br>
+                        <field name='employee_id' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='position' />
+                            <field name='temporary_position' />
+                        </group>
+                        <group>
+                            <field name='allowance' />
+                            <field name='start_date' />
+                            <field name='end_date' />
+                            <field name='remarks' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Project Based Extension: Form View -->
+    <record id='hr_project_based_extension_form' model='ir.ui.view'>
+        <field name='name'>hr.project.based.extension.form</field>
+        <field name='model'>hr.project.based.extension</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_id' />
+                        <br></br>
+                        <field name='employee_id' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='position_id' />
+                            <field name='original_eoc' />
+                            <field name='new_eoc' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PIP Tracker: Form View -->
+    <record id='hr_pip_tracker_form' model='ir.ui.view'>
+        <field name='name'>hr.pip.tracker.form</field>
+        <field name='model'>hr.pip.tracker</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_number' />
+                        <br></br>
+                        <field name='employee_number' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group>
+                        <group>
+                            <field name='last_name' />
+                            <field name='first_name' />
+                            <field name='middle_name' />
+                            <field name='hire_date' />
+                            <field name='account_id' />
+                            <field name='hr_representative' />
+                            <field name='graduate' />
+                        </group>
+                        <group>
+                            <field name='pip_start_date' />
+                            <field name='pip_1' />
+                            <field name='pip_2' />
+                            <field name='second_pip_1' />
+                            <field name='termination_date' />
+                            <field name='remarks' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- HR Performance Review Tracker: Form View -->
+    <record id='hr_performance_review_tracker_form' model='ir.ui.view'>
+        <field name='name'>hr.performance.review.tracker.form</field>
+        <field name='model'>hr.performance.review.tracker</field>
+        <field name='arch' type='xml'>
+            <form>
+                <sheet>
+                    <h3>
+                        <label for='employee_number' />
+                        <br></br>
+                        <field name='employee_number' />
+                    </h3>
+                    <h3>
+                        <label for='complete_name_id' />
+                        <br></br>
+                        <field name='complete_name_id' />
+                    </h3>
+                    <hr style="height:5px;border=width:0;color:gray;background-color:gray" />
+                    <group string='Employee Details'>
+                        <group>
+                            <field name='hire_date' />
+                            <field name='c_employment_status' />
+                            <field name='c_entity' />
+                        </group>
+                        <group>
+                            <field name='department' />
+                            <field name='account_id' />
+                            <field name='position_id' />
+                            <field name='email_address' />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Performance Review">
+                            <group>
+                                <group string='3rd Month Review'>
+                                    <field name='third_month_review_date' />
+                                    <field name='third_month_review_accomplished_date' />
+                                </group>
+                                <group string='5th Month Review'>
+                                    <field name='fifth_month_review_date' />
+                                    <field name='fifth_month_review_accomplished_date' />
+                                </group>
+                                <group string='2024 Annual Review'>
+                                    <field name='twentyfour_annual_review_date' />
+                                    <field name='twentyfour_annual_review_accomplished_date' />
+                                </group>
+                                <group string='2025 Annual Review'>
+                                    <field name='twentyfive_annual_review_date' />
+                                    <field name='twentyfive_annual_review_accomplished_date' />
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Others">
+                            <group>
+                                <group>
+                                    <field name='performance_review_poc_name' />
+                                    <field name='performance_review_poc_email_address' />
+                                </group>
+                                <group>
+                                    <field name='comments' />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

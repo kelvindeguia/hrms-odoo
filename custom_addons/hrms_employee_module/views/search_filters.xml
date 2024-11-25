@@ -1,0 +1,246 @@
+<odoo>
+    <!-- HR Employee Masterlist - Active: Search View -->
+    <record id='hr_employee_masterlist_active_search' model='ir.ui.view'>
+        <field name='name'>hr.employee.masterlist.search</field>
+        <field name='model'>hr.employee.masterlist</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <searchpanel groups="hrms_employee_module.group_hrms_user,hrms_employee_module.group_hrms_manager,
+                                    hrms_employee_module.group_hr_department_user, hrms_employee_module.group_hr_department_manager, 
+                                    hrms_employee_module.group_cs_department_user ,hrms_employee_module.group_cs_department_manager, 
+                                    hrms_employee_module.group_it_department_user, hrms_employee_module.group_it_department_manager, 
+                                    hrms_employee_module.group_recruitment_department_user, hrms_employee_module.group_recruitment_department_manager, 
+                                    hrms_employee_module.group_facilities_department_user, hrms_employee_module.group_facilities_department_manager, 
+                                    hrms_employee_module.group_finance_department_user, hrms_employee_module.group_finance_department_manager">>
+                    <field name="department_id" icon="fa-users" enable_counters="1"/>
+                </searchpanel>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='obt_number' string='OBT Number'
+                    filter_domain="[('obt_number', 'ilike', self)]" />
+                <field name='complete_name' string='Employee'
+                    filter_domain="['|', '|', ('complete_name', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator/>
+                    <filter name="my_team" string="My Team" domain="[('parent_id.user_id', '=', uid)]"/>
+                    <!-- <filter name="department" string="My Department" domain="[('department', '=', uid.department)]"/> -->
+                <separator />
+                <filter string='ISWerk' name='iswerk'
+                    domain="[('company', '=', 'iswerk')]" />
+                <filter string='iSupport Worldwide' name='isupport_worldwide'
+                    domain="[('company', '=', 'isupport_worldwide')]" />
+                <separator />
+                <filter string='Onboarding' name='onboarding'
+                    domain="[('status', '=', 'onboarding')]" />
+                <filter string='Active' name='active'
+                    domain="[('status', '=', 'active')]" />
+                <filter string='Offboarding' name='offboarding'
+                    domain="[('status', '=', 'offboarding')]" />
+                <filter string='Inactive' name='inactive'
+                    domain="[('status', '=', 'inactive')]" />
+                <filter string='Fall Out' name='fall_out'
+                    domain="[('status', '=', 'fall_out')]" />
+                <filter string='TBD' name='tbd'
+                    domain="[('status', '=', 'tbd')]" />
+                <separator />
+                <filter string='Archived' name='archived'
+                    domain="[('active', '=', False)]" />
+
+                <group expand="0" string="Group By">
+                    <filter name="group_manager" string="Manager" domain="[]" context="{'group_by': 'parent_id'}"/>
+                    <filter name="group_department" string="Department" domain="[]" context="{'group_by': 'department_id'}"/>
+                    <separator />
+                    <filter name="group_classification" string="Classification / Level" domain="[]" context="{'group_by': 'c_classification_level'}"/>
+                    <filter name="group_employment_status" string="Employment Status" domain="[]" context="{'group_by': 'c_employment_status'}"/>
+                    <filter name="group_start" string="Start Date" domain="[]" context="{'group_by': 'start_date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+     <!-- HR ER Tracker: PMF Tracker: Search Filter -->
+    <record id='hr_er_tracker_pmf_search' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.pmf.search</field>
+        <field name='model'>hr.er.tracker.pmf</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='employee_name_id' string='Employee'
+                    filter_domain="['|', '|', ('employee_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <field name='position' string='Position'
+                    filter_domain="['|',  ('position', 'ilike', self), ('new_position', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <filter string="Type of Movement" name="c_type_of_movement_id" context="{'group_by':'c_type_of_movement_id'}" />
+                    <filter string="Effective Date" name="effective_date" context="{'group_by':'effective_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+ 
+    <!-- HR ER Tracker: DA Tracker: Search View -->
+    <record id='hr_er_tracker_da_search' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.da.search</field>
+        <field name='model'>hr.er.tracker.da</field>
+        <field name='arch' type='xml'>
+            <search string='Search ER Tracker DA'>
+                <field name='employee_number' string='Employee Number'
+                    filter_domain="[('employee_number', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <filter string="Level of Sanction" name="level_of_sanction" context="{'group_by':'level_of_sanction'}" />
+                    <filter string="Decision" name="c_decision" context="{'group_by':'c_decision'}" />
+                    <separator />
+                    <filter string="Termination Date" name="termination_date" context="{'group_by':'termination_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - RTWO Tracker: Search Filter -->
+    <record id='hr_rtwo_tracker_search' model='ir.ui.view'>
+        <field name='name'>hr.rtwo.tracker.search</field>
+        <field name='model'>hr.rtwo.tracker</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Decision" name="start_date_ncns" context="{'group_by':'start_date_ncns'}" />
+                    <filter string="Termination Date" name="termination_date" context="{'group_by':'termination_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Probitionary Extension Tracker: Search Filter -->
+    <record id='hr_probitionary_extension_tracker_search' model='ir.ui.view'>
+        <field name='name'>hr.probitionary.extension.tracker.search</field>
+        <field name='model'>hr.probitionary.extension.tracker</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                 <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <separator />
+                    <filter string="Hire Date" name="hire_date" context="{'group_by':'hire_date'}" />
+                    <filter string="Fifth Month Review" name="fifth_month_review" context="{'group_by':'fifth_month_review'}" />
+                    <filter string="Regularization" name="regularization_date" context="{'group_by':'regularization_date'}" />
+                    <filter string="Extension Date" name="extension_date" context="{'group_by':'extension_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PPPA Tracker: Search Filter -->
+    <record id='hr_pppa_tracker_search' model='ir.ui.view'>
+        <field name='name'>hr.pppa.tracker.search</field>
+        <field name='model'>hr.pppa.tracker</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <separator/>
+                    <filter string="Hire Date" name="hire_date" context="{'group_by':'hire_date'}" />
+                    <filter string="Start Date" name="start_date" context="{'group_by':'start_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Project Based Extension: Search Filter -->
+    <record id='hr_project_based_extension_search' model='ir.ui.view'>
+        <field name='name'>hr.project.based.extension.search</field>
+        <field name='model'>hr.project.based.extension</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_id' string='Employee ID'
+                    filter_domain="[('employee_id', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <separator/>
+                    <filter string="Original EOC" name="original_eoc" context="{'group_by':'original_eoc'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PIP Tracker: Search Filter -->
+    <record id='hr_pip_tracker_search' model='ir.ui.view'>
+        <field name='name'>hr.pip.tracker.search</field>
+        <field name='model'>hr.pip.tracker</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_number' string='Employee ID'
+                    filter_domain="[('employee_number', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <separator />
+                    <filter string="Pip Start Date" name="pip_start_date" context="{'group_by':'pip_start_date'}" />
+                    <filter string="Termination Date" name="termination_date" context="{'group_by':'termination_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id='hr_performance_review_tracker_search' model='ir.ui.view'>
+        <field name='name'>hr.performance.review.tracker.search</field>
+        <field name='model'>hr.performance.review.tracker</field>
+        <field name='arch' type='xml'>
+            <search string='Search Employees'>
+                <field name='employee_number' string='Employee ID'
+                    filter_domain="[('employee_number', 'ilike', self)]"/>
+                <field name='complete_name_id' string='Employee'
+                    filter_domain="['|', '|', ('complete_name_id', 'ilike', self), ('first_name', 'ilike', self), ('last_name', 'ilike', self)]" />
+                <separator />
+                <filter string='Regular' name='regular'
+                    domain="[('c_employment_status', '=', 'REGULAR')]" />
+                <filter string='Probationary' name='probationary'
+                    domain="[('c_employment_status', '=', 'PROBATIONARY')]" />
+                <filter string='Project-Based' name='project-based'
+                    domain="[('c_employment_status', '=', 'Project-Based')]" />
+                <separator />
+                <filter string='Archived' name='archive' domain="[('active', '=', False)]" />
+                <group expand="0" string="Group By: ">
+                    <filter string="Account" name="account_id" context="{'group_by':'account_id'}" />
+                    <separator />
+                    <filter string="3rd Month Review Date" name="third_month_review_date" context="{'group_by':'third_month_review_date'}" />
+                    <filter string="5th Month Review Date" name="fifth_month_review_date" context="{'group_by':'fifth_month_review_date'}" />
+                    <filter string="2024 Annual Review Date" name="twentyfour_annual_review_date" context="{'group_by':'twentyfour_annual_review_date'}" />
+                    <filter string="2025 Annual Review Date" name="twentyfive_annual_review_date" context="{'group_by':'twentyfive_annual_review_date'}" />
+                </group>
+            </search>
+        </field>
+    </record>
+
+
+</odoo>

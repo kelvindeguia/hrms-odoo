@@ -1,0 +1,15 @@
+<odoo>
+    <record id="hr_employee_masterlist_active_pivot" model="ir.ui.view">
+        <field name="name">hr.employee.masterlist.pivot</field>
+        <field name="model">hr.employee.masterlist</field>
+        <field name="arch" type="xml">
+            <pivot string="Accounts">
+                <field name="company" type="row"/>
+                <field name="department_id" type="col"/>
+
+                <!-- Measure fields (aggregated values) -->
+                <!-- <field name="department" type="measure"/> -->
+            </pivot>
+        </field>
+    </record>
+</odoo>

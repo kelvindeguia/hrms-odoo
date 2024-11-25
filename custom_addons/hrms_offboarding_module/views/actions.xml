@@ -1,0 +1,9 @@
+<odoo>
+   <!-- Action: Offboarding -->
+    <record id='action_hr_offboarding' model='ir.actions.act_window'>
+        <field name='name'>Offboarding Tracker</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.offboarding</field>
+        <field name='view_mode'>list,form</field>
+    </record>
+</odoo>

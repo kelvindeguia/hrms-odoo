@@ -1,0 +1,13 @@
+<odoo>
+    <record model="ir.ui.view" id="hr_employee_masterlist_active_graph">
+        <field name="name">hr.employee.masterlist.graph</field>
+        <field name="model">hr.employee.masterlist</field>
+        <field name="type">graph</field>
+        <field name="arch" type="xml">
+            <graph string="Accounts">
+                <field name="department_id" group="True"/>
+                <field name="company"/>
+            </graph>
+        </field>
+    </record>
+</odoo>

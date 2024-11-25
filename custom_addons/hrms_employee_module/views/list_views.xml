@@ -1,0 +1,307 @@
+<odoo>
+    <!-- HR Employee Masterlist - Active: list View-->
+    <record id='hr_employee_masterlist_active_list' model='ir.ui.view'>
+        <field name='name'>hr.employee.masterlist.list</field>
+        <field name='model'>hr.employee.masterlist</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <!-- <field name='name'/> -->
+                <field name='employee_id' optional="show" />
+                <!-- <field name="tags" widget="many2many_tags" options="{'color_field': 'color'}" optional="show"/> -->
+                <field name='last_name' optional="hide" />
+                <field name='first_name' optional="hide" />
+                <field name='middle_name' optional="hide" />
+                <field name='complete_name' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='start_date' optional="show" />
+                <field name='date_of_birth' optional="show" />
+                <field name='department_id' optional="hide" />
+                <!-- <field name='account' optional="show" /> -->
+                <field name='position_id' optional="show" />
+                <field name='lob' optional="hide" />
+                <field name='employee_address' optional="show" />
+                <field name='city' optional="hide" />
+                <field name='region' optional="hide" />
+                <field name='employee_email_address' optional="show" />
+                <field name='mobile_number' optional="show" />
+                <field name='second_lob' optional="hide" />
+                <field name='payroll_approver_id' optional="hide" />
+                <field name='payroll_approvers_email_address' optional="hide" />
+                <field name='parent_id' optional="hide" />
+                <field name='managers_email_address' optional="hide" />
+                <field name='performance_review_poc' optional="hide" />
+                <field name='internet_provider' optional="hide" />
+                <field name='company' optional="show" />
+                <field name='entity_updated' optional="show" />
+                <field name='all_employees_except_pmi' optional="hide" />
+                <field name='isupport_employees_distro' optional="hide" />
+                <field name='iswerk_employees_distro' optional="hide" />
+                <field name='all_ammex' optional="hide" />
+                <field name='lighthouse' optional="hide" />
+                <field name='isupporthub' optional="hide" />
+            </list>
+        </field>
+    </record>
+
+    <record id='hr_er_tracker_pmf_list' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.pmf.list</field>
+        <field name='model'>hr.er.tracker.pmf</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+               <field name='employee_id' optional="show" />
+                <field name='employee_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='position' optional="show" />
+                <field name='new_position' optional="show" />
+                <field name='current_rate' optional="hide" />
+                <field name='new_rate' optional="show" />
+                <field name='effective_date' optional="show" />
+                <field name='email' optional="show" />
+                <field name='manager_id' optional="show" />
+                <!-- <field name='type_of_movement' optional="show" /> -->
+                <field name='c_type_of_movement_id' optional="show" />
+                <field name='pmf_sent_date' optional="show" />
+                <field name='remarks' optional="show" />
+                <field name='hr_representative' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- <record id='hr_er_tracker_pmf_type_of_movement_list' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.pmf.type.of.movement.list</field>
+        <field name='model'>hr.er.tracker.pmf.type.of.movement</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='type_of_movement' optional="show" />
+            </list>
+        </field>
+    </record> -->
+
+    <!-- HR ER Tracker: DA Tracker: list View -->
+    <record id='hr_er_tracker_da_list' model='ir.ui.view'>
+        <field name='name'>hr.er.tracker.da.list</field>
+        <field name='model'>hr.er.tracker.da</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_number' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='main_infraction' optional="show" />
+                <field name='section' optional="show" />
+                <field name='level_of_sanction' optional="show" />
+                <field name='description' optional="show" />
+                <field name='ir_received_date' optional="show" />
+                <field name='hr_representative' optional="show" />
+                <field name='nte_serve_date' optional="show" />
+                <field name='ah_date' optional="show" />
+                <field name='ah_time' optional="show" />
+                <field name='c_decision' optional="show" />
+                <field name='nda_served_date' optional="show" />
+                <field name='termination_date' optional="show" />
+                <field name='remarks' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - RTWO Tracker: list View-->
+    <record id='hr_rtwo_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.rtwo.tracker.list</field>
+        <field name='model'>hr.rtwo.tracker</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='last_name' optional="hide" />
+                <field name='first_name' optional="hide" />
+                <field name='middle_name' optional="hide" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='personal_email_address' optional="show" />
+                <field name='work_email_address' optional="show" />
+                <field name='requestor_name' optional="show" />
+                <field name='hr_representative' optional="hide" />
+                <field name='start_date_ncns' optional="hide" />
+                <field name='rtwo_letter_sent' optional="hide" />
+                <field name='first_rtwo_hearing' optional="hide" />
+                <field name='first_rtwo_time' optional="hide" />
+                <field name='second_rtwo_hearing' optional="hide" />
+                <field name='second_rtwo_time' optional="hide" />
+                <field name='termination_date' optional="show" />
+                <field name='remarks' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Probitionary Extension Tracker: list View-->
+    <record id='hr_probitionary_extension_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.probitionary.extension.tracker.list</field>
+        <field name='model'>hr.probitionary.extension.tracker</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='position_id' optional="show" />
+                <field name='fifth_month_review' optional="show" />
+                <field name='regularization_date' optional="show" />
+                <field name='extension_date' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PPPA Tracker: list View-->
+    <record id='hr_pppa_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.pppa.tracker.list</field>
+        <field name='model'>hr.pppa.tracker</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='position' optional="show" />
+                <field name='temporary_position' optional="show" />
+                <field name='allowance' optional="hide" />
+                <field name='start_date' optional="show" />
+                <field name='end_date' optional="hide" />
+                <field name='remarks' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - Project Based Extension: list View-->
+    <record id='hr_project_based_extension_list' model='ir.ui.view'>
+        <field name='name'>hr.project.based.extension.list</field>
+        <field name='model'>hr.project.based.extension</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='position_id' optional="show" />
+                <field name='original_eoc' optional="show" />
+                <field name='new_eoc' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Er Tracker - PIP Tracker: list View-->
+    <record id='hr_pip_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.pip.tracker.list</field>
+        <field name='model'>hr.pip.tracker</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_number' optional="show" />
+                <field name='last_name' optional="hide" />
+                <field name='first_name' optional="hide" />
+                <field name='middle_name' optional="hide" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='hr_representative' optional="hide" />
+                <field name='pip_start_date' optional="show" />
+                <field name='pip_1' optional="hide" />
+                <field name='pip_2' optional="hide" />
+                <field name='second_pip_1' optional="hide" />
+                <field name='graduate' optional="show" />
+                <field name='termination_date' optional="hide" />
+                <field name='remarks' optional="hide" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Performance Review Tracker: list View-->
+    <record id='hr_performance_review_tracker_list' model='ir.ui.view'>
+        <field name='name'>hr.performance.review.tracker.list</field>
+        <field name='model'>hr.performance.review.tracker</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_number' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='hire_date' optional="show" />
+                <field name='c_employment_status' optional="show" />
+                <field name='c_entity' optional="show" />
+                <field name='department' optional="show" />
+                <field name='account_id' optional="show" />
+                <field name='position_id' optional="show" />
+                <field name='email_address' optional="show" />
+                <field name='performance_review_poc_name' optional="hide" />
+                <field name='performance_review_poc_email_address' optional="hide" />
+                <field name='comments' optional="hide" />
+                <field name='third_month_review_date' optional="hide" />
+                <field name='third_month_review_accomplished_date' optional="hide" />
+                <field name='fifth_month_review_date' optional="hide" />
+                <field name='fifth_month_review_accomplished_date' optional="hide" />
+                <field name='twentyfour_annual_review_date' optional="hide" />
+                <field name='twentyfour_annual_review_accomplished_date' optional="hide" />
+                <field name='twentyfive_annual_review_date' optional="hide" />
+                <field name='twentyfive_annual_review_accomplished_date' optional="hide" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Contracts-->
+    <record id='hr_contracts_list' model='ir.ui.view'>
+        <field name='name'>hr.contracts.list</field>
+        <field name='model'>hr.contracts</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='employee_name_id' optional="show" />
+                <field name='contract_start_date' optional="show" />
+                <field name='contract_end_date' optional="show" />
+                <field name='notice_period' optional="show" />
+                <field name='working_schedule_id' optional="show" />
+                <field name='department_id' optional="show" />
+                <field name='salary_structure' optional="show" />
+                <field name='job_position_id' optional="show" />
+                <field name='contract_type_id' optional="show" />
+                <field name='wage' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Departments-->
+    <record id='hr_departments_list' model='ir.ui.view'>
+        <field name='name'>hr.departments.list</field>
+        <field name='model'>hr.departments</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='department_name' optional="show" />
+                <field name='manager_id' optional="show" />
+                <field name='parent_id' optional="show" />
+                <field name='company' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Dependency-->
+    <record id='hr_dependency_list' model='ir.ui.view'>
+        <field name='name'>hr.dependency.list</field>
+        <field name='model'>hr.dependency</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='principal_name_id' optional="hide" />
+                <field name='dependent_name' optional="show" />
+                <field name='relation' optional="show" />
+                <field name='dob' optional="show" />
+                <field name='contact_number' optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <!-- HR Job Position-->
+    <record id='hr_job_positions_list' model='ir.ui.view'>
+        <field name='name'>hr.job.positions.list</field>
+        <field name='model'>hr.job.positions</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='job_position' optional="show" />
+            </list>
+        </field>
+    </record>
+
+</odoo>

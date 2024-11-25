@@ -1,0 +1,10 @@
+<odoo>
+    <!-- Action: HR Resignation -->
+    <record id='action_hr_resignation' model='ir.actions.act_window'>
+        <field name='name'>Resignation</field>
+        <field name='type'>ir.actions.act_window</field>
+        <field name='res_model'>hr.resignation</field>
+        <field name='view_mode'>kanban,list,form</field>
+    </record>
+
+</odoo>

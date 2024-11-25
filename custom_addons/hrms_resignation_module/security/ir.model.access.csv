@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+hr_resignation_approver,hr.resignation.admin.approver,model_hr_resignation,group_hrms_resignation_approver,1,1,0,0
+hr_resignation_manager,hr.resignation.admin.manager,model_hr_resignation,group_hrms_resignation_manager,1,1,1,1
+
+hr_resignation_hr_user,hr.resignation.hr.manager,model_hr_resignation,group_hr_department_user,1,1,1,0
+hr_resignation_hr_manager,hr.resignation.hr.approver,model_hr_resignation,group_hr_department_manager,1,1,1,1
+
+hr_resignation_c_and_b_user,hr.resignation.c_and_b.manager,model_hr_resignation,group_c_and_b_user,1,0,0,0
+hr_resignation_c_and_b_manager,hr.resignation.c_and_b.approver,model_hr_resignation,group_c_and_b_manager,1,1,0,0

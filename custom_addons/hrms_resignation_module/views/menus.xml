@@ -1,0 +1,18 @@
+<odoo>
+    <menuitem
+        id='root_menu_resignation'
+        name='HRMS - Resignation'
+        sequence='3'
+        groups='group_hrms_resignation_manager,group_hr_department_user,group_hr_department_manager,group_c_and_b_user,group_c_and_b_manager,group_hrms_resignation_approver'
+    />
+
+    <!-- Main Menu: Resignation -->
+    <menuitem
+        id='main_menu_resignation'
+        name='Resignation'
+        parent='root_menu_resignation'
+        sequence='1'
+        groups='group_hrms_resignation_manager,group_hr_department_user,group_hr_department_manager,group_c_and_b_user,group_c_and_b_manager,group_hrms_resignation_approver'
+        action='action_hr_resignation'
+    />
+</odoo>

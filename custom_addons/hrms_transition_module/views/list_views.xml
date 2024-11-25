@@ -1,0 +1,21 @@
+<odoo>
+    <record id='hr_transition_list' model='ir.ui.view'>
+        <field name='name'>hr.transition.list</field>
+        <field name='model'>hr.transition</field>
+        <field name='arch' type='xml'>
+            <list class="list-view-style oe_list_content" default_order="id desc">
+                <field name='employee_id' optional="show" />
+                <field name='complete_name_id' optional="show" />
+                <field name='position_id' optional="show" />
+                <field name='start_date' optional="show" />
+                <!-- <field name='department_account_id' optional="show" /> -->
+                <field name='work_email' optional="show" />
+                <field name='effective_date_transfer' optional="show" />
+                <field name='payroll_credential_status' optional="show" />
+                <field name='payroll_enrolled_date' optional="hide" />
+                <field name='payroll_credential_generated_by' optional="hide" />
+                <field name='validated_by_id' optional="hide" />
+            </list>
+        </field>
+    </record>
+</odoo>

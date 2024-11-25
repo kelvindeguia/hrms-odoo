@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="rule_employee_see_own_records" model="ir.rule">
+            <field name="name">Employee: See Own Records</field>
+            <field name="model_id" ref="hrms_employee_module.model_hr_employee_masterlist"/>
+            <field name="groups" eval="[(4, ref('hrms_employee_module.group_employee_user'))]"/>
+            <field name="groups" eval="[(4, ref('hrms_employee_module.group_employee_manager'))]"/>
+            <field name="domain_force">[('user_id', '=', user.id)]</field>
+        </record>
+    </data>
+</odoo>

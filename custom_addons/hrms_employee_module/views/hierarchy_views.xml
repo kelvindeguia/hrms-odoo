@@ -1,0 +1,34 @@
+<odoo>
+    <!-- HR Employee Masterlist : Hierarchy View -->
+    <record id="hr_employee_masterlist_hierarchy" model="ir.ui.view">
+        <field name="name">hr.employee.masterlist.hierarchy</field>
+        <field name="model">hr.employee.masterlist</field>
+        <field name="arch" type="xml">
+            <hierarchy child_field="child_ids" draggable="1">
+                <field name="complete_name"/>
+                <templates>
+                    <t t-name="hierarchy-box">
+                        <div t-attf-class="o_hierarchy_node_header d-flex justify-content-center pb-4"
+                                t-att-title="parent_id"
+                                style="background-color: #064f6e; color: white;">
+                                <!-- <field class="" name="department_id"/> -->
+                            <field class="position-relative fw-bold" name="department_id"/>
+                        </div>
+                        <div class="o_hierarchy_node_body d-flex flex-column text-center">
+                            <div class="w-100 position-relative">
+                                <field class="fw-bold" name="complete_name"/><br/>
+                                <field class="" name="position_id"/><br/>
+                                <field class="" name="employee_email_address"/>
+                            </div>
+                        </div>
+                        <!-- <div class="o_hierarchy_node_footer">
+                            <div style="background-color: red; color: white;"/>
+                        </div> -->
+                    </t>
+                </templates>
+            </hierarchy>
+        </field>
+    </record>
+    
+</odoo>
+
